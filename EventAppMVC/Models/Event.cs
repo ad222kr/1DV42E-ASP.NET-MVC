@@ -9,6 +9,7 @@ namespace EventAppMVC.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
+        public DateTime Date { get; set; }
 
         public virtual ICollection<Attendee> Attendees { get; set; }
     }

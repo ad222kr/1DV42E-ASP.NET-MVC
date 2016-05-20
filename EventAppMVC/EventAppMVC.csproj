@@ -128,11 +128,24 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605200735057_InitialCreate.cs" />
+    <Compile Include="Migrations\201605200735057_InitialCreate.Designer.cs">
+      <DependentUpon>201605200735057_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605200749024_AddDateToEvent.cs" />
+    <Compile Include="Migrations\201605200749024_AddDateToEvent.Designer.cs">
+      <DependentUpon>201605200749024_AddDateToEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Attendee.cs" />
+    <Compile Include="Models\DAL\EventAppContext.cs" />
+    <Compile Include="Models\DAL\GenericRepository.cs" />
+    <Compile Include="Models\DAL\UnitOfWork.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -174,6 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Event\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -182,6 +196,14 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201605200735057_InitialCreate.resx">
+      <DependentUpon>201605200735057_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605200749024_AddDateToEvent.resx">
+      <DependentUpon>201605200749024_AddDateToEvent.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
