@@ -153,6 +153,10 @@
     <Compile Include="Migrations\201605201729323_RemoveAttendees.Designer.cs">
       <DependentUpon>201605201729323_RemoveAttendees.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605201738096_AddVenue.cs" />
+    <Compile Include="Migrations\201605201738096_AddVenue.Designer.cs">
+      <DependentUpon>201605201738096_AddVenue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAL\EventAppContext.cs" />
     <Compile Include="Models\DAL\GenericRepository.cs" />
@@ -227,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605201729323_RemoveAttendees.resx">
       <DependentUpon>201605201729323_RemoveAttendees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201738096_AddVenue.resx">
+      <DependentUpon>201605201738096_AddVenue.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
