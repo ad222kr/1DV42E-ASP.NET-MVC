@@ -1,0 +1,29 @@
+﻿@model EventAppMVC.ViewModels.EventViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table-hover table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var evt in Model.Events)
+        {
+            <tr>
+                <td>@evt.ID</td>
+                <td>@evt.Name</td>
+                <td>@evt.Date</td>
+                <td>@Html.ActionLink("Details", "Details", new { id = @evt.ID })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

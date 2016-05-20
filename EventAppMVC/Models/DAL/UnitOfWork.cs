@@ -9,7 +9,7 @@ namespace EventAppMVC.Models.DAL
     {
         private EventAppContext _context = new EventAppContext();
         private GenericRepository<Event> _eventRepository;
-        private GenericRepository<Attendee> _attendeeRepository;
+
 
         public GenericRepository<Event> EventRepository
         {
@@ -23,17 +23,7 @@ namespace EventAppMVC.Models.DAL
             }
         }
 
-        public GenericRepository<Attendee> AttendeeRepository
-        {
-            get
-            {
-                if (_attendeeRepository == null)
-                {
-                    _attendeeRepository = new GenericRepository<Attendee>(_context);
-                }
-                return _attendeeRepository;
-            }
-        }
+       
 
         public void Save()
         {

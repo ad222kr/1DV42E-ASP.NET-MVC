@@ -141,13 +141,27 @@
     <Compile Include="Migrations\201605200749024_AddDateToEvent.Designer.cs">
       <DependentUpon>201605200749024_AddDateToEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605201446380_AddEventIDToAttendee.cs" />
+    <Compile Include="Migrations\201605201446380_AddEventIDToAttendee.Designer.cs">
+      <DependentUpon>201605201446380_AddEventIDToAttendee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605201451328_AddLastNameToAttendee.cs" />
+    <Compile Include="Migrations\201605201451328_AddLastNameToAttendee.Designer.cs">
+      <DependentUpon>201605201451328_AddLastNameToAttendee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605201729323_RemoveAttendees.cs" />
+    <Compile Include="Migrations\201605201729323_RemoveAttendees.Designer.cs">
+      <DependentUpon>201605201729323_RemoveAttendees.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Attendee.cs" />
     <Compile Include="Models\DAL\EventAppContext.cs" />
     <Compile Include="Models\DAL\GenericRepository.cs" />
     <Compile Include="Models\DAL\UnitOfWork.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\Venue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\EventViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -184,10 +198,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Event\Index.cshtml" />
+    <Content Include="Views\Event\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Event\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -203,6 +218,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605200749024_AddDateToEvent.resx">
       <DependentUpon>201605200749024_AddDateToEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201446380_AddEventIDToAttendee.resx">
+      <DependentUpon>201605201446380_AddEventIDToAttendee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201451328_AddLastNameToAttendee.resx">
+      <DependentUpon>201605201451328_AddLastNameToAttendee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605201729323_RemoveAttendees.resx">
+      <DependentUpon>201605201729323_RemoveAttendees.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

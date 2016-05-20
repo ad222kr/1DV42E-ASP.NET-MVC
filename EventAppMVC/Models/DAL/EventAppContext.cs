@@ -10,7 +10,6 @@ namespace EventAppMVC.Models.DAL
     public class EventAppContext : DbContext
     {
         public DbSet<Event> Events { get; set; }
-        public DbSet<Attendee> Attendees { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

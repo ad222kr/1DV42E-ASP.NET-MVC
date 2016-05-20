@@ -42,6 +42,10 @@ namespace EventAppMVC.Migrations
 
             events.ForEach(e => context.Events.AddOrUpdate(p => p.Name, e));
             context.SaveChanges();
+
+           
+
+            
         }
     }
 }

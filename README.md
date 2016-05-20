@@ -1,17 +1,26 @@
 # 1DV42E-ASP.NET-MVC
 
 ## Tasks for both
-- [ ] Set up application for migrations
-- [ ] Create models
-- [ ] Generate a migrations
-- [ ] Migrate a simple migration
-- [ ] Create a one-to-many relationship migration
+- [X] Set up application for migrations
+- [/] Create models
+- [X] Generate a migrations
+- [X] Migrate a simple migration
+- [X] Create a one-to-many relationship migration
 - [ ] Create a many-to-many relationship migration
+- [ ] Add payload to the many-to-many relational table
 - [ ] Remove attributes from a model and migrate
+- [ ] Add an attribute
+- [ ] Remove a column
+- [ ] Make a column non nullable
+- [ ] Referential Integrity
+- [ ] Enumerable types
+- [x] Seeding the database
+- [x] Remove a table
+- [ ] Constraints
 
 ## ASP.NET MVC specific tasks
-- [ ] Setup application for Code First
-- [ ] Implement the repository pattern
+- [X] Setup application for Code First
+- [X] Implement the repository pattern
 
 ## Task documentation
 
@@ -69,7 +78,8 @@ The first model to be created is the Attendee. To try and simulate many possible
 
 On creating a model that will be stored as a row in a table in the database, the model needs a property named ID of the type int. This will allow EF to interpret it ass the primary key (ID or classnameID).
 
-Entity Framework uses "navigation properties" for simulating relations in code. These are declared as virtual for EF to use lazy loading. If a model has many of another, this property is declared as an ```public virtual ICollection<Type> Types ```. If a model has only, one, the navigation property is declared like ``` public virtual Type Type ```.
+Entity Framework uses "navigation properties" for simulating relations in code. These are declared as virtual for EF to use lazy loading. If a model has many of another, this property is declared as an ```public virtual ICollection<Type> Types ```. If a model has only, one, the navigation property is declared like ``` public virtual Type Type ```. A foreign key attribute also needs
+to be specified in the class.
 
 ### 4. Creating a simple migration
 To enable migrations you need to write a command in the Package Manager Console
@@ -102,8 +112,31 @@ App_Data folder. Inspecting the tables i see that they are direct representation
 of my Model classes and are filled with data from the seeds.
 
 To see how migrations work after modifying my entities I added a DateTime property
-to the event and generated a new migration.
+to the event and generated a new migration. After inspecting the migration-class I saw
+that it adds a columnt to the Event-table. No need to write anything yourself, just make changes
+to the models and generate the migration. This is a really nice feature of Entity Framework.
 
+I modify the seed data to include Date and update the database. The data is
+updated! this is due to the use of AddOrUpdate method for the context.Events where
+it checks by name. If the name exists, it updates and if not, it creates a row.
+Also really nice so you dont have to drop and recreate the database everytime.
+
+### 5. Creating the one to many migration
+The Code First tutorial/sample application has a one to many relationship
+migration example which creates the many-side with a direct reference to the one-side ID.
+Thi
+
+
+### 6. Seeding the database
+To seed the database one command is required (apart from changing the seed-file ofcourse).
+The context object has a nice method called AddOrUpdate which takes a lambda expression to tell what property
+cannot be duplicated. If it finds a row in the table with that attribute taken, it updates the row. Else it creates.
+A really nice feature.
+
+
+### 7. Removing a table
+Removing a table was pretty straight forward. Just remove the model-class and you are good to go with a migration. 
+The generated migration drops the Foreign Key, the Index and lastly the table. Then just update-database
 
 
 
