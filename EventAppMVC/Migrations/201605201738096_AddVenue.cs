@@ -18,8 +18,9 @@ namespace EventAppMVC.Migrations
                 .PrimaryKey(t => t.ID);
             
             AddColumn("dbo.Event", "VenueID", c => c.Int(nullable: false));
-            CreateIndex("dbo.Event", "VenueID");
             AddForeignKey("dbo.Event", "VenueID", "dbo.Venue", "ID", cascadeDelete: true);
+            CreateIndex("dbo.Event", "VenueID");
+            
         }
         
         public override void Down()

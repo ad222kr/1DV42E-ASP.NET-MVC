@@ -157,6 +157,14 @@
     <Compile Include="Migrations\201605201738096_AddVenue.Designer.cs">
       <DependentUpon>201605201738096_AddVenue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605210917583_AddRatingToEvent.cs" />
+    <Compile Include="Migrations\201605210917583_AddRatingToEvent.Designer.cs">
+      <DependentUpon>201605210917583_AddRatingToEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605210937014_RemoveRatingFromEvent.cs" />
+    <Compile Include="Migrations\201605210937014_RemoveRatingFromEvent.Designer.cs">
+      <DependentUpon>201605210937014_RemoveRatingFromEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DAL\EventAppContext.cs" />
     <Compile Include="Models\DAL\GenericRepository.cs" />
@@ -234,6 +242,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605201738096_AddVenue.resx">
       <DependentUpon>201605201738096_AddVenue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605210917583_AddRatingToEvent.resx">
+      <DependentUpon>201605210917583_AddRatingToEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605210937014_RemoveRatingFromEvent.resx">
+      <DependentUpon>201605210937014_RemoveRatingFromEvent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

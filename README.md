@@ -8,15 +8,15 @@
 - [X] Create a one-to-many relationship migration
 - [ ] Create a many-to-many relationship migration
 - [ ] Add payload to the many-to-many relational table
-- [ ] Remove attributes from a model and migrate
-- [ ] Add an attribute
-- [ ] Remove a column
+- [x] Add an attribute
+- [x] Remove a column
 - [ ] Make a column non nullable
 - [ ] Referential Integrity
 - [ ] Enumerable types
 - [x] Seeding the database
 - [x] Remove a table
 - [ ] Constraints
+- [x] Default values
 
 ## ASP.NET MVC specific tasks
 - [X] Setup application for Code First
@@ -137,6 +137,44 @@ A really nice feature.
 ### 7. Removing a table
 Removing a table was pretty straight forward. Just remove the model-class and you are good to go with a migration. 
 The generated migration drops the Foreign Key, the Index and lastly the table. Then just update-database
+
+### 8. Default values/Add an attribute
+Finding information about how to set the default value for a row in the database with migrations was tricky,
+but after some time I found another EF Code First [walkthrough by microsoft](https://msdn.microsoft.com/en-us/data/jj591621.aspx)
+. You set the default value by modifying the generated migration file.
+So first we add a new property to the Event Model called Rating. Also, we want this to have a default value.
+After some searching there is no way of doing this smoothly with code (you can have non auto properties but I dont want that).
+We add a migrations ```Add-Migration AddRatingToEvent ```  
+Then modify the AddColumn statement with  
+```C#
+  AddColumn("dbo.Event", "Rating", c => c.Int(nullable: false, defaultValue: 3));  
+```
+
+THen we run ```update-database```
+
+### 9. Removing a column.
+After working this long with code first migrations you should already
+know that changes to model classes reflect the migration. This is why we are just
+gonna delete an property from the Event class and run the migration.
+
+We remove the rating, and run the migration and done! Really smooooooooooth
+
+### 10. Make a column non nullable.
+If the column is of the type int (dvs model has int property) the 
+column will default to non-nullable since the type int cannot be null in C#.
+IF you want a nullable int you have to use int?.
+
+
+
+### Problems
+* After removing a table (Attendee) and then adding a new (Venue) I got a Foreing KEY constraing error. This was due to a 
+data still being present in the database. To fix this, I took a look at an article linked to by the 
+ASP.NET site http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.html
+where I found out that there are different db initializers. One of these servers our need, DropCreateDatabaseWhenModelChanges.
+Lets try it. This tutorial used a console application though, so it wasnt very clear where we set the initializer. I could not
+find any official documentation about it either, but luckily a google search revealed the solution in http://www.entityframeworktutorial.net/code-first/database-initialization-strategy-in-code-first.aspx
+This didnt work though since it cleary doesnt remove the data so I had to manually delete everything. 
+
 
 
 
