@@ -124,7 +124,11 @@ Also really nice so you dont have to drop and recreate the database everytime.
 ### 5. Creating the one to many migration
 The Code First tutorial/sample application has a one to many relationship
 migration example which creates the many-side with a direct reference to the one-side ID.
-Thi
+
+Entity Framework uses "navigation properties" for simulating relations in code. These are declared as virtual for EF to use lazy loading. If a model has many of another, this property is declared as an ```public virtual ICollection<Type> Types ```. If a model has only, one, the navigation property is declared like ``` public virtual Type Type ```. A foreign key attribute also needs
+to be specified in the class, like TypeID. 
+
+After that you run Add-Migration and EF creates a migration that has a one-to-many relationship.
 
 
 ### 6. Seeding the database
