@@ -27,6 +27,12 @@
 ### 1. Setup application for Code First
 First thing to notice is that when you create an ASP.NET MVC application it isn't shipped with an ORM, you have to install entity framework yourself. Pretty straightforward, open the NuGet Package Manager Console in VS2015 and type ```Install-Package EntityFramework```. This installs Entity Framework 6.1.3, might want to document it in the paper later.
 
+To enable migrations you need to write a command in the Package Manager Console
+```enable migrations -contexttypename TheContextClassName ```
+
+After this, a folder named migrations is generated and a configuration class containing
+the seed-method.
+
 The ASP.NET site has really [good documentation/tutorials](https://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) on how to get started with Code First so I'm gonna start there. This tutorial uses DBContext objects directly in the controllers which is not best practice but it's a good start. Therefor 
 Repository pattern with Unit of work will be implemented
 
@@ -82,11 +88,7 @@ Entity Framework uses "navigation properties" for simulating relations in code. 
 to be specified in the class.
 
 ### 4. Creating a simple migration
-To enable migrations you need to write a command in the Package Manager Console
-```enable migrations -contexttypename TheContextClassName ```
 
-After this, a folder named migrations is generated and a configuration class containing
-the seed-method.
 
 After filling the seed-method with some example data its time to create a migration.
 this is done with two commands, one creates and one updates the database.
