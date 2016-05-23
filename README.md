@@ -13,7 +13,6 @@
 - [ ] Referential Integrity
 - [X] Seeding the database
 - [X] Remove a table
-- [ ] Constraints
 - [X] Default values
 - [ ] Clear the db
 - [ ] Rollback migration
