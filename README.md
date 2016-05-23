@@ -2,21 +2,21 @@
 
 ## Tasks for both
 - [X] Set up application for migrations
-- [/] Create models
+- [X] Create models
 - [X] Generate a migrations
 - [X] Migrate a simple migration
 - [X] Create a one-to-many relationship migration
 - [ ] Create a many-to-many relationship migration
-- [ ] Add payload to the many-to-many relational table
-- [x] Add an attribute
-- [x] Remove a column
+- [X] Add an attribute
+- [X] Remove a column
 - [ ] Make a column non nullable
 - [ ] Referential Integrity
-- [ ] Enumerable types
-- [x] Seeding the database
-- [x] Remove a table
+- [X] Seeding the database
+- [X] Remove a table
 - [ ] Constraints
-- [x] Default values
+- [X] Default values
+- [ ] Clear the db
+- [ ] Rollback migration
 
 ## ASP.NET MVC specific tasks
 - [X] Setup application for Code First
