@@ -170,6 +170,9 @@ column will default to non-nullable since the type int cannot be null in C#.
 IF you want a nullable int you have to use int?.
 
 
+### 11. Many to many 
+https://blogs.msdn.microsoft.com/wriju/2011/05/14/code-first-ef-4-1-building-many-to-many-relationship/
+
 
 ### Problems
 * After removing a table (Attendee) and then adding a new (Venue) I got a Foreing KEY constraing error. This was due to a 
